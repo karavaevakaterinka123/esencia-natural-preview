@@ -43,12 +43,12 @@ a { color: inherit; text-decoration: none; }
 .hero__video { top: 50%; left: 50%; width: 100vw; height: 56.25vw; min-height: 100vh; min-width: 177.77vh; transform: translate(-50%, -50%); filter: saturate(1.02) contrast(1.03) brightness(0.92); }
 .hero__video--mobile { display: none; }
 .hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
-.hero__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,20,14,0.38) 0%, rgba(10,20,14,0.18) 42%, rgba(10,20,14,0.84) 100%), linear-gradient(90deg, rgba(7,12,9,0.20) 0%, rgba(7,12,9,0.00) 38%, rgba(7,12,9,0.16) 100%); }
+.hero__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,16,11,0.50) 0%, rgba(8,16,11,0.26) 34%, rgba(8,16,11,0.88) 100%), linear-gradient(90deg, rgba(6,11,8,0.36) 0%, rgba(6,11,8,0.10) 42%, rgba(6,11,8,0.22) 100%); }
 .hero__content { position: relative; z-index: 2; padding: 0 60px 90px; max-width: 900px; }
-.hero__label { font-family: monospace; font-size: 11px; letter-spacing: 0.20em; text-transform: uppercase; color: rgba(247,244,239,0.48); margin-bottom: 32px; }
-.hero__title { font-family: var(--hf); font-size: clamp(52px, 8vw, 110px); font-weight: 300; line-height: 0.92; letter-spacing: -0.02em; color: #f7f4ef; margin-bottom: 36px; }
+.hero__label { font-family: monospace; font-size: 11px; letter-spacing: 0.20em; text-transform: uppercase; color: rgba(247,244,239,0.94); text-shadow: 0 2px 14px rgba(0,0,0,0.34); margin-bottom: 32px; }
+.hero__title { font-family: var(--hf); font-size: clamp(52px, 8vw, 110px); font-weight: 300; line-height: 0.92; letter-spacing: -0.02em; color: #f7f4ef; text-shadow: 0 10px 28px rgba(0,0,0,0.28); margin-bottom: 36px; }
 .hero__title-line { display: block; }
-.hero__sub { font-size: 18px; line-height: 1.7; color: rgba(247,244,239,0.68); max-width: 520px; margin-bottom: 44px; text-wrap: pretty; }
+.hero__sub { font-size: 18px; line-height: 1.7; color: rgba(247,244,239,0.82); text-shadow: 0 6px 18px rgba(0,0,0,0.24); max-width: 520px; margin-bottom: 44px; text-wrap: pretty; }
 
 /* BUTTONS */
 .btn { display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500; padding: 18px 44px; transition: all 0.3s; cursor: pointer; border: none; }
@@ -57,10 +57,6 @@ a { color: inherit; text-decoration: none; }
 .btn--dark { background: var(--accent); color: #f7f4ef; }
 .btn-secondary { font-size: 13px; letter-spacing: 0.10em; color: rgba(247,244,239,0.75); border-bottom: 1px solid rgba(247,244,239,0.35); padding-bottom: 2px; transition: all 0.25s; display: inline-block; margin-top: 20px; }
 .btn-secondary:hover { color: #f7f4ef; border-color: #f7f4ef; }
-
-/* FLOATING CTA */
-.floating-cta { position: fixed; bottom: 28px; right: 28px; z-index: 150; box-shadow: 0 8px 24px rgba(45,74,62,0.40); display: none; }
-.floating-cta:hover { box-shadow: 0 10px 32px rgba(45,74,62,0.55); }
 
 /* WELCOME PROMO */
 .promo-popup { position: fixed; inset: 0; z-index: 420; display: none; align-items: center; justify-content: center; padding: 28px; background: rgba(8, 13, 10, 0.56); backdrop-filter: blur(10px); }
@@ -103,15 +99,26 @@ a { color: inherit; text-decoration: none; }
 .heading--xl { font-family: var(--hf); font-size: clamp(42px, 5.5vw, 80px); font-weight: 300; line-height: 0.98; text-wrap: pretty; }
 .body-lg { font-size: 17px; line-height: 1.8; color: var(--muted); text-wrap: pretty; }
 .body-text { font-size: 15px; line-height: 1.85; color: var(--muted); text-wrap: pretty; }
+.promesa-copy { position: relative; padding-left: 34px; }
+.promesa-copy::before { content: ""; position: absolute; left: 0; top: 10px; width: 1px; height: calc(100% - 18px); background: linear-gradient(180deg, rgba(45,74,62,0.55) 0%, rgba(45,74,62,0.12) 100%); }
+.promesa-lead { color: var(--fg); }
+.promesa-lead strong { color: var(--accent); font-weight: 500; }
+.promesa-accent { color: var(--accent); font-weight: 500; }
+.promesa-close { margin-top: 34px; font-family: var(--hf); font-size: clamp(28px, 4vw, 40px); line-height: 1.18; color: var(--accent); text-wrap: pretty; }
 
 /* PARA QUIEN */
 .for-whom-item { padding: 22px 0; border-bottom: 1px solid var(--line); font-size: 15px; line-height: 1.75; }
 
 /* PILARES */
-.pilares-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1px; background: var(--line); }
-.pilar { padding: 52px 38px; background: var(--bg-alt); min-height: 400px; display: flex; flex-direction: column; }
-.pilar__title { font-family: var(--hf); font-size: 28px; font-weight: 400; margin-bottom: 20px; }
-.pilar__body { font-size: 14px; line-height: 1.8; color: var(--muted); text-wrap: pretty; }
+.pilares-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); }
+.pilar { background: var(--bg-alt); display: flex; flex-direction: column; min-height: 100%; overflow: hidden; }
+.pilar__media { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #d8d0c4; }
+.pilar__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,20,14,0.06) 0%, rgba(11,20,14,0.18) 100%); pointer-events: none; }
+.pilar__img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s ease; }
+.pilar:hover .pilar__img { transform: scale(1.03); }
+.pilar__content { padding: 28px 28px 32px; display: flex; flex-direction: column; flex: 1; }
+.pilar__title { font-family: var(--hf); font-size: 30px; font-weight: 300; line-height: 1.04; margin-bottom: 14px; color: var(--fg); }
+.pilar__body { font-size: 14px; line-height: 1.82; color: var(--muted); text-wrap: pretty; }
 
 /* EXPERIENCIA */
 .exp-item { display: flex; gap: 38px; align-items: flex-start; padding: 40px 0; border-bottom: 1px solid var(--line); }
@@ -166,11 +173,17 @@ a { color: inherit; text-decoration: none; }
 .stay-card--wide .stay-card__slider { height: 380px; }
 .investment-footer { margin-top: 40px; padding: 28px 30px; background: rgba(45,74,62,0.06); border-left: 3px solid var(--accent); }
 .investment-footer p { font-size: 15px; line-height: 1.8; color: var(--muted); text-wrap: pretty; }
-.payment-terms { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.payment-terms__card { padding: 28px 30px; background: rgba(45,74,62,0.04); border: 1px solid var(--line); }
-.payment-terms__title { font-family: var(--hf); font-size: 28px; font-weight: 300; line-height: 1.05; margin-bottom: 18px; color: var(--fg); }
-.payment-terms__item { padding: 14px 0; border-top: 1px solid var(--line); }
-.payment-terms__item:first-child { padding-top: 0; border-top: 0; }
+.payment-terms { margin-top: 36px; padding: 34px 0 0; border-top: 1px solid var(--line); }
+.payment-terms__intro { max-width: 760px; margin-bottom: 28px; font-size: 15px; line-height: 1.82; color: var(--muted); text-wrap: pretty; }
+.payment-terms__accordion { display: grid; gap: 14px; }
+.payment-terms__panel { background: rgba(45,74,62,0.03); border-top: 1px solid rgba(26,26,24,0.08); border-bottom: 1px solid rgba(26,26,24,0.08); }
+.payment-terms__summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 0; font-family: var(--hf); font-size: 30px; font-weight: 300; line-height: 1.05; color: var(--fg); }
+.payment-terms__summary::-webkit-details-marker { display: none; }
+.payment-terms__summary::after { content: "+"; flex-shrink: 0; font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 300; color: var(--accent); transition: transform 0.25s ease; }
+.payment-terms__panel[open] .payment-terms__summary::after { transform: rotate(45deg); }
+.payment-terms__content { padding: 0 0 6px; }
+.payment-terms__item { padding: 14px 0; border-top: 1px solid rgba(26,26,24,0.08); }
+.payment-terms__content .payment-terms__item:first-child { padding-top: 4px; border-top: 0; }
 .payment-terms__label { display: block; margin-bottom: 8px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 .payment-terms__text { font-size: 15px; line-height: 1.8; color: var(--muted); text-wrap: pretty; }
 
@@ -204,6 +217,15 @@ a { color: inherit; text-decoration: none; }
 .testimonial-feature__text { max-width: 720px; font-size: 15px; line-height: 1.85; color: var(--muted); text-wrap: pretty; }
 .testimonial-feature__link { width: fit-content; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); border-bottom: 1px solid rgba(45,74,62,0.28); padding-bottom: 3px; }
 .testimonial-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; }
+.mini-proof { padding-top: 88px; padding-bottom: 88px; }
+.mini-proof__intro { max-width: 720px; margin: 0 auto 34px; text-align: center; }
+.mini-proof__title { font-family: var(--hf); font-size: clamp(34px, 4.4vw, 54px); font-weight: 300; line-height: 0.98; color: var(--fg); margin-bottom: 16px; text-wrap: pretty; }
+.mini-proof__text { font-size: 15px; line-height: 1.82; color: var(--muted); text-wrap: pretty; }
+.mini-proof .testimonial-feature { margin-bottom: 0; background: transparent; border-top: 1px solid rgba(26,26,24,0.08); border-bottom: 1px solid rgba(26,26,24,0.08); }
+.mini-proof .testimonial-feature__copy { padding-left: 0; padding-right: 0; padding-bottom: 0; }
+.testimonials-archive__intro { max-width: 680px; margin: 0 auto 42px; text-align: center; }
+.testimonials-archive__title { font-family: var(--hf); font-size: clamp(34px, 4vw, 48px); font-weight: 300; line-height: 1; color: var(--fg); margin-bottom: 14px; text-wrap: pretty; }
+.testimonials-archive__text { font-size: 15px; line-height: 1.82; color: var(--muted); text-wrap: pretty; }
 .video-modal { position: fixed; inset: 0; z-index: 500; display: none; align-items: center; justify-content: center; padding: 32px; background: rgba(8, 12, 10, 0.78); backdrop-filter: blur(8px); }
 .video-modal.is-open { display: flex; }
 .video-modal__dialog { position: relative; width: min(1120px, 100%); aspect-ratio: 16 / 9; background: #000; box-shadow: 0 24px 64px rgba(0,0,0,0.28); }
@@ -215,20 +237,27 @@ a { color: inherit; text-decoration: none; }
 .footer__brand { font-family: var(--hf); font-size: 17px; letter-spacing: 0.14em; color: rgba(232,224,212,0.48); }
 .footer__copy { font-size: 11px; color: rgba(232,224,212,0.26); letter-spacing: 0.10em; }
 
+@media (max-width: 1200px) {
+  .pilares-grid { grid-template-columns: 1fr 1fr; }
+}
+
 @media (max-width: 768px) {
   .hero__video--desktop { display: none; }
   .hero__video--mobile { display: block; }
   .hero__video { top: 0; left: 0; width: 100%; height: 100%; min-width: 0; min-height: 0; transform: none; object-position: 52% center; filter: saturate(1.04) contrast(1.03) brightness(0.90); }
   .grid-2 { grid-template-columns: 1fr; gap: 60px; }
   .pilares-grid { grid-template-columns: 1fr; }
+  .pilar__media { aspect-ratio: 16 / 11; }
+  .pilar__content { padding: 22px 20px 24px; }
+  .pilar__title { font-size: 28px; }
   .urgency__counters { flex-direction: column; gap: 28px; }
   .promo-popup { padding: 18px; }
   .promo-popup__dialog { padding: 28px 18px 20px; }
   .promo-popup__timer { grid-template-columns: 1fr; gap: 10px; }
   .promo-popup__actions .btn { width: 100%; text-align: center; }
   .promo-popup__link { text-align: center; }
-  .payment-terms { grid-template-columns: 1fr; gap: 16px; }
-  .payment-terms__card { padding: 22px 20px; }
+  .payment-terms { margin-top: 30px; padding-top: 28px; }
+  .payment-terms__summary { padding: 18px 0; font-size: 26px; }
   .section, .section-alt, .section-dark { padding: 80px 32px; }
   .hero__content { padding: 0 32px 60px; }
   .nav { padding: 0 32px; }
@@ -251,8 +280,14 @@ a { color: inherit; text-decoration: none; }
   .testimonial-grid { grid-template-columns: 1fr; gap: 18px; }
   .testimonial-feature__play { left: 24px; bottom: 24px; width: 64px; height: 64px; }
   .testimonial-feature__play-label { left: 104px; bottom: 43px; }
+  .mini-proof { padding-top: 72px; padding-bottom: 72px; }
+  .mini-proof__intro, .testimonials-archive__intro { margin-bottom: 28px; }
+  .mini-proof .testimonial-feature__copy { padding-top: 24px; }
   .video-modal { padding: 18px; }
   .video-modal__close { top: -38px; }
+  .promesa-copy { padding-left: 0; }
+  .promesa-copy::before { display: none; }
+  .promesa-close { font-size: 30px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -264,12 +299,12 @@ a { color: inherit; text-decoration: none; }
 
 <!-- NAV -->
 <nav class="nav" id="nav">
-  <div class="nav__brand">Esencia Natural</div>
+  <a href="#top" class="nav__brand">Esencia Natural</a>
   <a href="#booking-calendar" class="nav__cta">Agendar llamada</a>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="top">
   <div class="hero__media">
     <img
       class="hero__poster"
@@ -323,10 +358,10 @@ a { color: inherit; text-decoration: none; }
 
 <!-- PROMESA -->
 <section class="section" id="promesa">
-  <div class="inner-narrow">
-    <p class="body-lg"><em style="font-family: var(--hf); font-size: 22px; font-style: italic; color: var(--accent);">Esto no es un retiro de yoga.</em> Esencia Natural es un proceso de transformación de seis días, diseñado para que tu cuerpo, tu sistema nervioso y tu forma de estar en el mundo se reorganicen.</p>
-    <p class="body-lg" style="margin-top:28px;">Trabajamos con la respiración como tecnología, con la naturaleza como contexto, con el círculo como sostén, y con la ceremonia como puerta.</p>
-    <p class="body-lg" style="margin-top:28px;"><strong>No vas a salir distinto. Vas a salir más vos.</strong></p>
+  <div class="inner-narrow promesa-copy">
+    <p class="body-lg promesa-lead"><em style="font-family: var(--hf); font-size: 22px; font-style: italic; color: var(--accent);">Esto no es un retiro de yoga.</em> Esencia Natural es un <strong>proceso de transformación de seis días</strong>, diseñado para que tu cuerpo, tu sistema nervioso y tu forma de estar en el mundo se reorganicen.</p>
+    <p class="body-lg" style="margin-top:28px;">Trabajamos con la <span class="promesa-accent">respiración como tecnología</span>, con la <span class="promesa-accent">naturaleza como contexto</span>, con el círculo como sostén, y con la ceremonia como puerta.</p>
+    <p class="promesa-close">No vas a salir distinto. Vas a salir más vos.</p>
   </div>
 </section>
 
@@ -361,52 +396,74 @@ a { color: inherit; text-decoration: none; }
     <span class="label">Los cuatro pilares</span>
     <div class="pilares-grid">
       <div class="pilar">
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="margin-bottom: 28px;">
-          <circle cx="32" cy="32" r="30" stroke="#2d4a3e" stroke-width="1" fill="none"/>
-          <path d="M19 34 C23 27, 27 27, 31 34" stroke="#2d4a3e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <path d="M33 34 C37 27, 41 27, 45 34" stroke="#2d4a3e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <path d="M21 39 C25 43, 29 43, 32 39" stroke="#2d4a3e" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-          <path d="M32 39 C35 43, 39 43, 43 39" stroke="#2d4a3e" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-          <path d="M32 21 L32 46" stroke="#2d4a3e" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
-          <circle cx="32" cy="25" r="2.5" fill="#2d4a3e"/>
-        </svg>
-        <h3 class="pilar__title">Respiración</h3>
-        <p class="pilar__body">La respiración es una tecnología antigua. Bien usada, mueve emoción acumulada, reorganiza el sistema nervioso, abre acceso a estados que la mente sola no alcanza.</p>
+        <div class="pilar__media">
+          <img class="pilar__img" src="assets/pilares/respiracion.jpg" alt="Práctica de respiración en la selva" />
+        </div>
+        <div class="pilar__content">
+          <h3 class="pilar__title">Respiración</h3>
+          <p class="pilar__body">La respiración es una tecnología antigua. Bien usada, mueve emoción acumulada, reorganiza el sistema nervioso, abre acceso a estados que la mente sola no alcanza.</p>
+        </div>
       </div>
       <div class="pilar">
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="margin-bottom: 28px;">
-          <circle cx="32" cy="32" r="30" stroke="#2d4a3e" stroke-width="1" fill="none"/>
-          <path d="M20 40 C24 35, 28 33, 32 34 C36 35, 40 33, 44 28" stroke="#2d4a3e" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-          <path d="M22 44 C28 41, 36 41, 42 44" stroke="#2d4a3e" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.75"/>
-          <path d="M32 20 C38 20, 42 24, 42 29 C42 36, 35 39, 32 44 C29 39, 22 36, 22 29 C22 24, 26 20, 32 20 Z" stroke="#2d4a3e" stroke-width="1.3" fill="none" stroke-linejoin="round"/>
-          <path d="M32 24 C34 28, 34 32, 31 36" stroke="#2d4a3e" stroke-width="1.1" stroke-linecap="round"/>
-        </svg>
-        <h3 class="pilar__title">Naturaleza</h3>
-        <p class="pilar__body">Munduk es uno de los lugares con más carga energética de Bali. Selva, cascadas, vertientes, templos. No es decorado: es parte del trabajo.</p>
+        <div class="pilar__media">
+          <img class="pilar__img" src="assets/pilares/naturaleza.jpg" alt="Cascada y selva en Munduk" />
+        </div>
+        <div class="pilar__content">
+          <h3 class="pilar__title">Naturaleza</h3>
+          <p class="pilar__body">Munduk es uno de los lugares con más carga energética de Bali. Selva, cascadas, vertientes, templos. No es decorado: es parte del trabajo.</p>
+        </div>
       </div>
       <div class="pilar">
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="margin-bottom: 28px;">
-          <circle cx="32" cy="32" r="30" stroke="#2d4a3e" stroke-width="1" fill="none"/>
-          <circle cx="32" cy="33" r="14" stroke="#2d4a3e" stroke-width="1" fill="none"/>
-          <circle cx="32" cy="25" r="3" fill="#2d4a3e"/>
-          <circle cx="23.5" cy="31" r="3" fill="#2d4a3e"/>
-          <circle cx="40.5" cy="31" r="3" fill="#2d4a3e"/>
-          <path d="M23.5 36 C26 39, 29 40, 32 40 C35 40, 38 39, 40.5 36" stroke="#2d4a3e" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-          <path d="M26 28 C27.5 26, 29.5 25, 32 25 C34.5 25, 36.5 26, 38 28" stroke="#2d4a3e" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.75"/>
-        </svg>
-        <h3 class="pilar__title">Tribu</h3>
-        <p class="pilar__body">Diez personas. Grupo cerrado durante seis días. Trabajo de confianza, mirada, sostén. La transformación pasa por adentro, pero no se hace sola.</p>
+        <div class="pilar__media">
+          <img class="pilar__img" src="assets/pilares/tribu.jpg" alt="Grupo practicando junto al agua" />
+        </div>
+        <div class="pilar__content">
+          <h3 class="pilar__title">Tribu</h3>
+          <p class="pilar__body">Diez personas. Grupo cerrado durante seis días. Trabajo de confianza, mirada, sostén. La transformación pasa por adentro, pero no se hace sola.</p>
+        </div>
       </div>
       <div class="pilar">
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="margin-bottom: 28px;">
-          <circle cx="32" cy="32" r="30" stroke="#2d4a3e" stroke-width="1" fill="none"/>
-          <path d="M32 18 C37 24, 39 29, 39 33 C39 38, 35.5 42, 32 44 C28.5 42, 25 38, 25 33 C25 29, 27 24, 32 18 Z" stroke="#2d4a3e" stroke-width="1.3" fill="none" stroke-linejoin="round"/>
-          <path d="M32 25 C34.5 28, 35.5 30.5, 35.5 33 C35.5 35.5, 34 37.5, 32 39 C30 37.5, 28.5 35.5, 28.5 33 C28.5 30.5, 29.5 28, 32 25 Z" stroke="#2d4a3e" stroke-width="1.1" fill="none" stroke-linejoin="round" opacity="0.8"/>
-          <path d="M23 46 L41 46" stroke="#2d4a3e" stroke-width="1.1" stroke-linecap="round"/>
-          <path d="M26 42 L32 46 L38 42" stroke="#2d4a3e" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <h3 class="pilar__title">Ceremonia</h3>
-        <p class="pilar__body">Tres noches frente al fuego. Una ceremonia inaugural balinesa. Un ritual de alquimia y manifestación al cierre. Marcamos el tiempo, lo que merece marca.</p>
+        <div class="pilar__media">
+          <img class="pilar__img" src="assets/pilares/ceremonia.jpg" alt="Círculo ceremonial en la plataforma de la selva" />
+        </div>
+        <div class="pilar__content">
+          <h3 class="pilar__title">Ceremonia</h3>
+          <p class="pilar__body">Tres noches frente al fuego. Una ceremonia inaugural balinesa. Un ritual de alquimia y manifestación al cierre. Marcamos el tiempo, lo que merece marca.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MINI PROOF -->
+<section class="section-alt mini-proof">
+  <div class="inner">
+    <div class="mini-proof__intro">
+      <span class="label">Una historia real</span>
+      <h2 class="mini-proof__title">Verlo. Escucharlo. Sentir si resuena con vos.</h2>
+      <p class="mini-proof__text">Antes de llegar a la parte práctica, vale más ver una experiencia vivida que seguir leyendo promesas. Dejamos este video acá para que puedas sentir el tono humano del retiro y ver si algo en vos responde.</p>
+    </div>
+    <div class="testimonial-feature">
+      <div class="testimonial-feature__media">
+        <button
+          class="testimonial-feature__trigger"
+          type="button"
+          data-video-trigger
+          data-video-id="2teaBrXYgpk"
+          aria-label="Abrir testimonio destacado en video"
+        >
+          <img class="testimonial-feature__poster" src="https://i.ytimg.com/vi/2teaBrXYgpk/hqdefault.jpg" alt="Vista previa del testimonio destacado en video" />
+          <div class="testimonial-feature__veil" aria-hidden="true"></div>
+          <span class="testimonial-feature__play" aria-hidden="true"></span>
+          <span class="testimonial-feature__play-label">Ver testimonio</span>
+        </button>
+      </div>
+      <div class="testimonial-feature__copy">
+        <div>
+          <div class="testimonial-feature__eyebrow">Testimonio destacado</div>
+          <p class="testimonial-feature__text" style="margin-top:16px;">No hace falta imaginar demasiado cómo se siente esta experiencia cuando alguien la puede contar con su propia voz. Podés verlo desde acá mismo o abrirlo en YouTube si preferís verlo aparte.</p>
+        </div>
+        <a href="https://www.youtube.com/watch?v=2teaBrXYgpk" target="_blank" class="testimonial-feature__link">Abrir en YouTube →</a>
       </div>
     </div>
   </div>
@@ -447,12 +504,16 @@ a { color: inherit; text-decoration: none; }
         <p class="body-text">DesaEko está en Munduk, en el norte de Bali, lejos del turismo de Ubud y Canggu. Acá no hay multitudes, no hay autos. Hay selva, agua, montaña, y silencio.</p>
       </div>
       <div class="place-slider" data-place-slider aria-label="Galería del lugar">
-        <img class="place-slider__slide is-active" src="assets/hotel/general/01.jpg" alt="Desa Eko rodeado de selva en Munduk" />
-        <img class="place-slider__slide" src="assets/hotel/general/03.jpg" alt="Vista del hotel entre vegetación tropical" />
-        <img class="place-slider__slide" src="assets/hotel/general/05.jpg" alt="Atmósfera general de Desa Eko en Bali" />
+        <img class="place-slider__slide is-active" src="assets/place/01-lake-boat.jpg" alt="Paseo en bote sobre el lago rodeado de montañas en Munduk" />
+        <img class="place-slider__slide" src="assets/place/02-waterfall.jpg" alt="Cascada en la selva de Munduk" />
+        <img class="place-slider__slide" src="assets/place/03-temple-lake.jpg" alt="Templo junto al lago y montañas de Munduk" />
+        <img class="place-slider__slide" src="assets/place/04-waterfall-portrait.jpg" alt="Gran cascada rodeada de vegetación tropical" />
+        <img class="place-slider__slide" src="assets/place/05-waterfall-bridge.jpg" alt="Puente frente a una cascada en la selva de Munduk" />
         <div class="place-slider__overlay" aria-hidden="true"></div>
         <div class="place-slider__dots" aria-hidden="true">
           <span class="place-slider__dot is-active"></span>
+          <span class="place-slider__dot"></span>
+          <span class="place-slider__dot"></span>
           <span class="place-slider__dot"></span>
           <span class="place-slider__dot"></span>
         </div>
@@ -465,7 +526,7 @@ a { color: inherit; text-decoration: none; }
 <section class="section-dark">
   <div class="inner">
     <div class="grid-2" style="align-items:center;">
-      <img src="_DSC0390.jpg" alt="Facu" style="width:100%; height:auto; display:block;" />
+      <img src="assets/facu/facu.jpg" alt="Facu" style="width:100%; height:auto; display:block;" />
       <div>
         <span class="label label--dark">Quién facilita</span>
         <h2 style="font-family:var(--hf); font-size:clamp(48px,5.5vw,68px); font-weight:300; line-height:0.95; margin-bottom:32px; color:#e8e0d4;">Facu</h2>
@@ -548,27 +609,34 @@ a { color: inherit; text-decoration: none; }
       <p><strong>La disponibilidad es realmente limitada:</strong> solo 6 lugares para la opción compartida y 4 para la opción individual. Las plazas se asignan por orden de reserva.</p>
     </div>
     <div class="payment-terms">
-      <div class="payment-terms__card">
-        <h3 class="payment-terms__title">Información de pago</h3>
-        <div class="payment-terms__item">
-          <span class="payment-terms__label">Depósito inicial</span>
-          <p class="payment-terms__text">La reserva de tu lugar se confirma con un depósito inicial del 50% del valor total. El saldo restante podrá abonarse en hasta 3 pagos.</p>
-        </div>
-        <div class="payment-terms__item">
-          <span class="payment-terms__label">Pago final</span>
-          <p class="payment-terms__text">El importe total deberá estar abonado en su totalidad hasta un mes antes del inicio del retiro.</p>
-        </div>
-      </div>
-      <div class="payment-terms__card">
-        <h3 class="payment-terms__title">Política de cancelación y reembolso</h3>
-        <div class="payment-terms__item">
-          <span class="payment-terms__label">Hasta 15 semanas antes</span>
-          <p class="payment-terms__text">Las cancelaciones realizadas hasta 15 semanas antes del retiro recibirán el reembolso completo de la reserva y de todas las cuotas abonadas.</p>
-        </div>
-        <div class="payment-terms__item">
-          <span class="payment-terms__label">Con menos de 15 semanas</span>
-          <p class="payment-terms__text">Las cancelaciones realizadas con menos de 15 semanas de anticipación solo serán reembolsadas en caso de que la persona encuentre un reemplazo para su lugar.</p>
-        </div>
+      <p class="payment-terms__intro">Para reservar con tranquilidad, dejamos acá toda la información importante en un solo bloque: cómo se confirma tu lugar, cómo se completa el pago y qué pasa si necesitás cancelar.</p>
+      <div class="payment-terms__accordion">
+        <details class="payment-terms__panel">
+          <summary class="payment-terms__summary">Información de pago</summary>
+          <div class="payment-terms__content">
+          <div class="payment-terms__item">
+            <span class="payment-terms__label">Depósito inicial</span>
+            <p class="payment-terms__text">La reserva de tu lugar se confirma con un depósito inicial del 50% del valor total. El saldo restante podrá abonarse en hasta 3 pagos.</p>
+          </div>
+          <div class="payment-terms__item">
+            <span class="payment-terms__label">Pago final</span>
+            <p class="payment-terms__text">El importe total deberá estar abonado en su totalidad hasta un mes antes del inicio del retiro.</p>
+          </div>
+          </div>
+        </details>
+        <details class="payment-terms__panel">
+          <summary class="payment-terms__summary">Política de cancelación y reembolso</summary>
+          <div class="payment-terms__content">
+          <div class="payment-terms__item">
+            <span class="payment-terms__label">Hasta 15 semanas antes</span>
+            <p class="payment-terms__text">Las cancelaciones realizadas hasta 15 semanas antes del retiro recibirán el reembolso completo de la reserva y de todas las cuotas abonadas.</p>
+          </div>
+          <div class="payment-terms__item">
+            <span class="payment-terms__label">Con menos de 15 semanas</span>
+            <p class="payment-terms__text">Las cancelaciones realizadas con menos de 15 semanas de anticipación solo serán reembolsadas en caso de que la persona encuentre un reemplazo para su lugar.</p>
+          </div>
+          </div>
+        </details>
       </div>
     </div>
     <div style="text-align:center; margin-top:48px;">
@@ -581,29 +649,9 @@ a { color: inherit; text-decoration: none; }
 <section class="section-alt">
   <div class="inner">
     <span class="label">Palabras de quienes lo vivieron</span>
-    <div class="testimonial-feature">
-      <div class="testimonial-feature__media">
-        <button
-          class="testimonial-feature__trigger"
-          type="button"
-          data-video-trigger
-          data-video-id="2teaBrXYgpk"
-          aria-label="Abrir testimonio destacado en video"
-        >
-          <img class="testimonial-feature__poster" src="https://i.ytimg.com/vi/2teaBrXYgpk/hqdefault.jpg" alt="Vista previa del testimonio destacado en video" />
-          <div class="testimonial-feature__veil" aria-hidden="true"></div>
-          <span class="testimonial-feature__play" aria-hidden="true"></span>
-          <span class="testimonial-feature__play-label">Ver testimonio</span>
-        </button>
-      </div>
-      <div class="testimonial-feature__copy">
-        <div>
-          <div class="testimonial-feature__eyebrow">Testimonio destacado</div>
-          <h3 class="testimonial-feature__title" style="margin:16px 0 22px;">Verlo. Escucharlo. Sentir si resuena con vos.</h3>
-          <p class="testimonial-feature__text">Sumé este video como una pieza central de la sección para que la experiencia no se quede solo en frases sueltas. Se puede abrir y ver directamente desde la página, sin salir del sitio.</p>
-        </div>
-        <a href="https://www.youtube.com/watch?v=2teaBrXYgpk" target="_blank" class="testimonial-feature__link">Abrir en YouTube →</a>
-      </div>
+    <div class="testimonials-archive__intro">
+      <h2 class="testimonials-archive__title">Más voces para sentir la profundidad de la experiencia.</h2>
+      <p class="testimonials-archive__text">Después de conocer el lugar, la propuesta y la inversión, estos testimonios ayudan a bajar la decisión a algo concreto: cómo se vive, qué mueve y qué deja después.</p>
     </div>
     <div class="testimonial-grid">
       
@@ -662,9 +710,6 @@ a { color: inherit; text-decoration: none; }
   <div class="footer__copy">© 2026 · Munduk, Bali</div>
 </footer>
 
-<!-- FLOATING CTA -->
-<a href="#booking-calendar" class="btn btn--dark floating-cta" id="floatingCta">Hablemos</a>
-
 <div class="promo-popup" id="promoPopup" aria-hidden="true">
   <div class="promo-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="promoPopupTitle">
     <button type="button" class="promo-popup__close" id="promoPopupClose" aria-label="Cerrar oferta">×</button>
@@ -716,16 +761,7 @@ a { color: inherit; text-decoration: none; }
 // Nav scroll
 window.addEventListener('scroll', function() {
   var nav = document.getElementById('nav');
-  var floatingCta = document.getElementById('floatingCta');
-  var bookingCalendar = document.getElementById('booking-calendar');
   nav.classList.toggle('scrolled', window.scrollY > 50);
-  var shouldShowFloating = window.scrollY > window.innerHeight * 0.9;
-  if (bookingCalendar) {
-    var bookingRect = bookingCalendar.getBoundingClientRect();
-    var bookingInView = bookingRect.top < window.innerHeight * 0.92 && bookingRect.bottom > 140;
-    if (bookingInView) shouldShowFloating = false;
-  }
-  floatingCta.style.display = shouldShowFloating ? 'inline-block' : 'none';
 });
 
 // Welcome promo popup
