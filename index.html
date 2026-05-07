@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Esencia Natural · Retiro en Bali · Septiembre 2026</title>
+<meta name="description" content="Una semana en Munduk, Bali, en grupo cerrado de 10. Respiración, naturaleza, ceremonia. Esencia Natural — septiembre 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: #f7f4ef; color: #1a1a18; font-family: 'DM Sans', sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+:root {
+  --bg: #f7f4ef;
+  --bg-alt: #f0ece4;
+  --bg-dark: #1e2b26;
+  --fg: #1a1a18;
+  --muted: #7a7570;
+  --accent: #2d4a3e;
+  --line: rgba(26,26,24,0.10);
+  --hf: 'Cormorant Garamond', Georgia, serif;
+}
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-thumb { background: rgba(26,26,24,0.15); border-radius: 2px; }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; justify-content: space-between; align-items: center; padding: 0 60px; height: 68px; transition: background 0.35s, border-color 0.35s; }
+.nav.scrolled { background: var(--bg); border-bottom: 1px solid var(--line); }
+.nav__brand { font-family: var(--hf); font-size: 17px; letter-spacing: 0.16em; text-transform: uppercase; color: #f7f4ef; transition: color 0.35s; }
+.nav.scrolled .nav__brand { color: var(--fg); }
+.nav__cta { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(247,244,239,0.85); border-bottom: 1px solid rgba(247,244,239,0.35); padding-bottom: 2px; transition: all 0.35s; }
+.nav.scrolled .nav__cta { color: var(--fg); border-color: var(--line); }
+.nav__cta:hover { opacity: 0.7; }
+
+/* HERO */
+.hero { position: relative; width: 100%; height: 100vh; min-height: 680px; overflow: hidden; background: #0d1a12; display: flex; align-items: flex-end; }
+.hero__media { position: absolute; inset: 0; overflow: hidden; background: #0d1a12; }
+.hero__poster, .hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; }
+.hero__poster { transform: scale(1.01); }
+.hero__video { top: 50%; left: 50%; width: 100vw; height: 56.25vw; min-height: 100vh; min-width: 177.77vh; transform: translate(-50%, -50%); filter: saturate(1.02) contrast(1.03) brightness(0.92); }
+.hero__video--mobile { display: none; }
+.hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.hero__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,20,14,0.38) 0%, rgba(10,20,14,0.18) 42%, rgba(10,20,14,0.84) 100%), linear-gradient(90deg, rgba(7,12,9,0.20) 0%, rgba(7,12,9,0.00) 38%, rgba(7,12,9,0.16) 100%); }
+.hero__content { position: relative; z-index: 2; padding: 0 60px 90px; max-width: 900px; }
+.hero__label { font-family: monospace; font-size: 11px; letter-spacing: 0.20em; text-transform: uppercase; color: rgba(247,244,239,0.48); margin-bottom: 32px; }
+.hero__title { font-family: var(--hf); font-size: clamp(52px, 8vw, 110px); font-weight: 300; line-height: 0.92; letter-spacing: -0.02em; color: #f7f4ef; margin-bottom: 36px; }
+.hero__title-line { display: block; }
+.hero__sub { font-size: 18px; line-height: 1.7; color: rgba(247,244,239,0.68); max-width: 520px; margin-bottom: 44px; text-wrap: pretty; }
+
+/* BUTTONS */
+.btn { display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500; padding: 18px 44px; transition: all 0.3s; cursor: pointer; border: none; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.18); }
+.btn--light { background: #f7f4ef; color: var(--accent); }
+.btn--dark { background: var(--accent); color: #f7f4ef; }
+.btn-secondary { font-size: 13px; letter-spacing: 0.10em; color: rgba(247,244,239,0.75); border-bottom: 1px solid rgba(247,244,239,0.35); padding-bottom: 2px; transition: all 0.25s; display: inline-block; margin-top: 20px; }
+.btn-secondary:hover { color: #f7f4ef; border-color: #f7f4ef; }
+
+/* FLOATING CTA */
+.floating-cta { position: fixed; bottom: 28px; right: 28px; z-index: 150; box-shadow: 0 8px 24px rgba(45,74,62,0.40); display: none; }
+.floating-cta:hover { box-shadow: 0 10px 32px rgba(45,74,62,0.55); }
+
+/* WELCOME PROMO */
+.promo-popup { position: fixed; inset: 0; z-index: 420; display: none; align-items: center; justify-content: center; padding: 28px; background: rgba(8, 13, 10, 0.56); backdrop-filter: blur(10px); }
+.promo-popup.is-open { display: flex; }
+.promo-popup__dialog { position: relative; width: min(460px, 100%); padding: 32px 28px 26px; background: rgba(247,244,239,0.98); border: 1px solid rgba(45,74,62,0.14); box-shadow: 0 20px 60px rgba(8,13,10,0.22); }
+.promo-popup__eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 16px; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.promo-popup__eyebrow::before { content: ""; width: 28px; height: 1px; background: rgba(45,74,62,0.34); }
+.promo-popup__title { font-family: var(--hf); font-size: clamp(30px, 5vw, 42px); font-weight: 300; line-height: 0.96; color: var(--fg); margin-bottom: 14px; text-wrap: pretty; }
+.promo-popup__text { font-size: 14px; line-height: 1.75; color: var(--muted); text-wrap: pretty; }
+.promo-popup__timer { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 22px 0 18px; }
+.promo-popup__time-box { padding: 10px 8px; background: rgba(45,74,62,0.06); border: 1px solid rgba(45,74,62,0.10); text-align: center; }
+.promo-popup__time-value { display: block; font-family: var(--hf); font-size: 26px; font-weight: 300; line-height: 1; color: var(--accent); margin-bottom: 4px; }
+.promo-popup__time-label { display: block; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.promo-popup__form { margin-top: 4px; }
+.promo-popup__field { margin-bottom: 14px; }
+.promo-popup__input { width: 100%; padding: 15px 16px; border: 1px solid rgba(45,74,62,0.16); background: rgba(255,255,255,0.62); color: var(--fg); font: inherit; font-size: 14px; }
+.promo-popup__input::placeholder { color: rgba(122,117,112,0.9); }
+.promo-popup__footnote { font-size: 11px; line-height: 1.65; color: var(--muted); margin-bottom: 18px; }
+.promo-popup__actions { display: flex; flex-direction: column; gap: 10px; align-items: stretch; }
+.promo-popup__close { position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; border: 0; background: transparent; color: rgba(26,26,24,0.48); font-size: 24px; line-height: 1; cursor: pointer; transition: color 0.25s ease; }
+.promo-popup__close:hover { color: var(--fg); }
+.promo-popup__link { background: transparent; border: 0; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); border-bottom: 1px solid rgba(45,74,62,0.24); padding: 0 0 3px; cursor: pointer; width: fit-content; justify-self: center; margin: 0 auto; }
+.promo-popup__success { display: none; margin-top: 16px; padding: 14px 16px; background: rgba(45,74,62,0.06); border: 1px solid rgba(45,74,62,0.10); font-size: 13px; line-height: 1.7; color: var(--accent); }
+.promo-popup__success.is-visible { display: block; }
+
+/* LAYOUT */
+.section { padding: 120px 60px; }
+.section + .section, .section + .section-alt, .section-alt + .section { border-top: 1px solid var(--line); }
+.section-alt { padding: 120px 60px; background: var(--bg-alt); border-top: 1px solid var(--line); }
+.section-dark { padding: 120px 60px; background: var(--bg-dark); }
+.inner { max-width: 1200px; margin: 0 auto; }
+.inner-narrow { max-width: 840px; margin: 0 auto; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; }
+.sticky-left { position: sticky; top: 120px; }
+
+/* TYPOGRAPHY */
+.label { font-family: monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); margin-bottom: 36px; display: block; }
+.label--dark { color: rgba(255,255,255,0.26); }
+.heading { font-family: var(--hf); font-size: clamp(38px, 4.5vw, 64px); font-weight: 300; line-height: 1.0; text-wrap: pretty; }
+.heading--xl { font-family: var(--hf); font-size: clamp(42px, 5.5vw, 80px); font-weight: 300; line-height: 0.98; text-wrap: pretty; }
+.body-lg { font-size: 17px; line-height: 1.8; color: var(--muted); text-wrap: pretty; }
+.body-text { font-size: 15px; line-height: 1.85; color: var(--muted); text-wrap: pretty; }
+
+/* PARA QUIEN */
+.for-whom-item { padding: 22px 0; border-bottom: 1px solid var(--line); font-size: 15px; line-height: 1.75; }
+
+/* PILARES */
+.pilares-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1px; background: var(--line); }
+.pilar { padding: 52px 38px; background: var(--bg-alt); min-height: 400px; display: flex; flex-direction: column; }
+.pilar__title { font-family: var(--hf); font-size: 28px; font-weight: 400; margin-bottom: 20px; }
+.pilar__body { font-size: 14px; line-height: 1.8; color: var(--muted); text-wrap: pretty; }
+
+/* EXPERIENCIA */
+.exp-item { display: flex; gap: 38px; align-items: flex-start; padding: 40px 0; border-bottom: 1px solid var(--line); }
+.exp-num { font-family: var(--hf); font-size: 68px; font-weight: 300; color: var(--accent); line-height: 1; min-width: 120px; flex-shrink: 0; }
+.exp-title { font-family: var(--hf); font-size: 24px; font-weight: 400; margin-bottom: 10px; line-height: 1.2; }
+.exp-text { font-size: 14px; line-height: 1.8; color: var(--muted); text-wrap: pretty; }
+
+/* LUGAR */
+.ph { background: repeating-linear-gradient(135deg, rgba(0,0,0,0.04) 0, rgba(0,0,0,0.04) 1px, transparent 1px, transparent 12px); display: flex; align-items: center; justify-content: center; color: rgba(0,0,0,0.20); font-family: monospace; font-size: 10px; letter-spacing: 0.06em; text-align: center; padding: 16px; }
+.ph--dark { background: repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px); color: rgba(255,255,255,0.18); }
+.place-slider { position: relative; width: 100%; height: 520px; overflow: hidden; background: #dcd6ca; }
+.place-slider__slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.2s ease; }
+.place-slider__slide.is-active { opacity: 1; }
+.place-slider__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17, 25, 20, 0.04) 0%, rgba(17, 25, 20, 0.18) 100%); pointer-events: none; }
+.place-slider__dots { position: absolute; left: 28px; bottom: 26px; display: flex; gap: 10px; z-index: 2; }
+.place-slider__dot { width: 30px; height: 1px; background: rgba(247,244,239,0.38); transition: background 0.35s ease, transform 0.35s ease; }
+.place-slider__dot.is-active { background: rgba(247,244,239,0.95); transform: scaleX(1.15); transform-origin: left center; }
+
+/* URGENCY BLOCK */
+.urgency { background: var(--accent); color: #f7f4ef; padding: 56px 60px; text-align: center; }
+.urgency__title { font-family: var(--hf); font-size: 36px; font-weight: 300; margin-bottom: 12px; }
+.urgency__sub { font-size: 14px; color: rgba(247,244,239,0.65); margin-bottom: 32px; }
+.urgency__counters { display: flex; gap: 48px; justify-content: center; align-items: center; margin-bottom: 40px; }
+.counter { text-align: center; }
+.counter__value { font-family: var(--hf); font-size: 56px; font-weight: 300; line-height: 1; margin-bottom: 8px; }
+.counter__label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,244,239,0.55); }
+
+/* INVERSION */
+.investment-intro { max-width: 860px; margin-bottom: 56px; }
+.investment-intro__note { margin-top: 18px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.stay-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.stay-card { background: rgba(45,74,62,0.04); border: 1px solid var(--line); display: flex; flex-direction: column; overflow: hidden; }
+.stay-card__slider { position: relative; width: 100%; height: 320px; overflow: hidden; background: #d8d0c4; }
+.stay-card__slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s ease; }
+.stay-card__slide.is-active { opacity: 1; }
+.stay-card__dots { position: absolute; left: 22px; bottom: 20px; display: flex; gap: 8px; z-index: 2; }
+.stay-card__dot { width: 24px; height: 1px; background: rgba(247,244,239,0.42); transition: background 0.35s ease, transform 0.35s ease; }
+.stay-card__dot.is-active { background: rgba(247,244,239,0.96); transform: scaleX(1.15); transform-origin: left center; }
+.stay-card__body { padding: 26px 24px 28px; display: flex; flex-direction: column; gap: 14px; }
+.stay-card__kicker { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.stay-card__availability { width: fit-content; padding: 7px 10px; background: rgba(45,74,62,0.10); color: var(--accent); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; }
+.stay-card__title { font-family: var(--hf); font-size: 34px; font-weight: 300; line-height: 0.98; color: var(--fg); }
+.stay-card__text { font-size: 15px; line-height: 1.8; color: var(--muted); text-wrap: pretty; }
+.stay-card__pricing { margin-top: 6px; display: flex; flex-direction: column; gap: 14px; }
+.stay-card__option { padding-top: 14px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 10px; }
+.stay-card__option:first-child { padding-top: 0; border-top: 0; }
+.stay-card__option-title { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.stay-card__option-price { font-family: var(--hf); font-size: 34px; font-weight: 300; line-height: 1; color: var(--accent); }
+.stay-card__option-copy { font-size: 14px; line-height: 1.75; color: var(--muted); text-wrap: pretty; }
+.stay-card__action { width: fit-content; margin-top: 2px; }
+.stay-card--wide { grid-column: 1 / -1; }
+.stay-card--wide .stay-card__slider { height: 380px; }
+.investment-footer { margin-top: 40px; padding: 28px 30px; background: rgba(45,74,62,0.06); border-left: 3px solid var(--accent); }
+.investment-footer p { font-size: 15px; line-height: 1.8; color: var(--muted); text-wrap: pretty; }
+.payment-terms { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.payment-terms__card { padding: 28px 30px; background: rgba(45,74,62,0.04); border: 1px solid var(--line); }
+.payment-terms__title { font-family: var(--hf); font-size: 28px; font-weight: 300; line-height: 1.05; margin-bottom: 18px; color: var(--fg); }
+.payment-terms__item { padding: 14px 0; border-top: 1px solid var(--line); }
+.payment-terms__item:first-child { padding-top: 0; border-top: 0; }
+.payment-terms__label { display: block; margin-bottom: 8px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.payment-terms__text { font-size: 15px; line-height: 1.8; color: var(--muted); text-wrap: pretty; }
+
+/* CTA SECTION */
+.cta { padding: 160px 60px; text-align: center; }
+.cta__title { font-family: var(--hf); font-size: clamp(40px, 5.5vw, 76px); font-weight: 300; line-height: 1.0; max-width: 720px; margin: 0 auto 28px; text-wrap: pretty; }
+.cta__sub { font-size: 17px; line-height: 1.8; color: var(--muted); max-width: 480px; margin: 0 auto 48px; text-wrap: pretty; }
+.booking-widget { max-width: 1040px; margin: 0 auto; padding: 38px; background: linear-gradient(180deg, rgba(240,236,228,0.92) 0%, rgba(247,244,239,0.98) 100%); border: 1px solid rgba(45,74,62,0.12); border-radius: 28px; box-shadow: 0 24px 60px rgba(29,43,38,0.08); text-align: left; scroll-margin-top: 96px; }
+.booking-widget__intro { max-width: 700px; margin: 0 auto 28px; text-align: center; }
+.booking-widget__eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 18px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.booking-widget__eyebrow::before, .booking-widget__eyebrow::after { content: ""; width: 34px; height: 1px; background: rgba(45,74,62,0.24); }
+.booking-widget__title { font-family: var(--hf); font-size: clamp(32px, 4vw, 48px); font-weight: 300; line-height: 1.02; color: var(--fg); margin-bottom: 14px; }
+.booking-widget__text { font-size: 15px; line-height: 1.85; color: var(--muted); text-wrap: pretty; }
+.booking-widget__frame-wrap { padding: 14px; background: rgba(255,255,255,0.72); border: 1px solid rgba(45,74,62,0.10); border-radius: 24px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.7); overflow: hidden; }
+.booking-widget__viewport { height: 840px; border-radius: 18px; overflow: hidden; background: #fff; }
+.booking-widget__frame { width: 100%; height: 860px; margin-top: -10px; border: none; overflow: hidden; background: #fff; }
+.booking-widget__note { max-width: 680px; margin: 20px auto 0; font-size: 12px; line-height: 1.7; color: var(--muted); text-align: center; }
+
+/* TESTIMONIOS */
+.testimonial-feature { max-width: 980px; margin: 0 auto 56px; background: var(--bg); overflow: hidden; }
+.testimonial-feature__media { position: relative; background: #0e1712; aspect-ratio: 16 / 9; overflow: hidden; }
+.testimonial-feature__trigger { position: relative; width: 100%; height: 100%; border: 0; padding: 0; cursor: pointer; background: #0e1712; display: block; text-align: left; }
+.testimonial-feature__poster { width: 100%; height: 100%; object-fit: cover; display: block; }
+.testimonial-feature__veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(9, 15, 11, 0.12) 0%, rgba(9, 15, 11, 0.58) 100%); }
+.testimonial-feature__play { position: absolute; left: 38px; bottom: 34px; width: 76px; height: 76px; border-radius: 999px; border: 1px solid rgba(247,244,239,0.65); background: rgba(247,244,239,0.12); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; }
+.testimonial-feature__play::before { content: ""; margin-left: 4px; border-top: 13px solid transparent; border-bottom: 13px solid transparent; border-left: 20px solid #f7f4ef; }
+.testimonial-feature__play-label { position: absolute; left: 132px; bottom: 52px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #f7f4ef; }
+.testimonial-feature__copy { padding: 34px 38px 38px; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; }
+.testimonial-feature__eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.testimonial-feature__title { font-family: var(--hf); font-size: clamp(34px, 4vw, 52px); font-weight: 300; line-height: 0.98; color: var(--fg); }
+.testimonial-feature__text { max-width: 720px; font-size: 15px; line-height: 1.85; color: var(--muted); text-wrap: pretty; }
+.testimonial-feature__link { width: fit-content; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); border-bottom: 1px solid rgba(45,74,62,0.28); padding-bottom: 3px; }
+.testimonial-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; }
+.video-modal { position: fixed; inset: 0; z-index: 500; display: none; align-items: center; justify-content: center; padding: 32px; background: rgba(8, 12, 10, 0.78); backdrop-filter: blur(8px); }
+.video-modal.is-open { display: flex; }
+.video-modal__dialog { position: relative; width: min(1120px, 100%); aspect-ratio: 16 / 9; background: #000; box-shadow: 0 24px 64px rgba(0,0,0,0.28); }
+.video-modal__frame { width: 100%; height: 100%; border: 0; display: block; }
+.video-modal__close { position: absolute; top: -46px; right: 0; border: 0; background: transparent; color: #f7f4ef; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; }
+
+/* FOOTER */
+.footer { background: var(--bg-dark); padding: 48px 60px; display: flex; justify-content: space-between; align-items: center; }
+.footer__brand { font-family: var(--hf); font-size: 17px; letter-spacing: 0.14em; color: rgba(232,224,212,0.48); }
+.footer__copy { font-size: 11px; color: rgba(232,224,212,0.26); letter-spacing: 0.10em; }
+
+@media (max-width: 768px) {
+  .hero__video--desktop { display: none; }
+  .hero__video--mobile { display: block; }
+  .hero__video { top: 0; left: 0; width: 100%; height: 100%; min-width: 0; min-height: 0; transform: none; object-position: 52% center; filter: saturate(1.04) contrast(1.03) brightness(0.90); }
+  .grid-2 { grid-template-columns: 1fr; gap: 60px; }
+  .pilares-grid { grid-template-columns: 1fr; }
+  .urgency__counters { flex-direction: column; gap: 28px; }
+  .promo-popup { padding: 18px; }
+  .promo-popup__dialog { padding: 28px 18px 20px; }
+  .promo-popup__timer { grid-template-columns: 1fr; gap: 10px; }
+  .promo-popup__actions .btn { width: 100%; text-align: center; }
+  .promo-popup__link { text-align: center; }
+  .payment-terms { grid-template-columns: 1fr; gap: 16px; }
+  .payment-terms__card { padding: 22px 20px; }
+  .section, .section-alt, .section-dark { padding: 80px 32px; }
+  .hero__content { padding: 0 32px 60px; }
+  .nav { padding: 0 32px; }
+  .cta { padding: 96px 32px; }
+  .booking-widget { padding: 20px; border-radius: 22px; }
+  .booking-widget__eyebrow::before, .booking-widget__eyebrow::after { width: 20px; }
+  .booking-widget__frame-wrap { padding: 10px; border-radius: 18px; }
+  .booking-widget__viewport { height: 760px; border-radius: 14px; }
+  .booking-widget__frame { height: 780px; margin-top: -10px; }
+  .place-slider { height: 420px; }
+  .place-slider__dots { left: 22px; bottom: 22px; }
+  .stay-grid { grid-template-columns: 1fr; gap: 22px; }
+  .stay-card__slider { height: 280px; }
+  .stay-card__body { padding: 22px 20px 24px; }
+  .stay-card__title, .stay-card__option-price { font-size: 30px; }
+  .investment-intro { margin-bottom: 36px; }
+  .stay-card--wide .stay-card__slider { height: 280px; }
+  .testimonial-feature { margin-bottom: 32px; }
+  .testimonial-feature__copy { padding: 28px 26px 30px; }
+  .testimonial-grid { grid-template-columns: 1fr; gap: 18px; }
+  .testimonial-feature__play { left: 24px; bottom: 24px; width: 64px; height: 64px; }
+  .testimonial-feature__play-label { left: 104px; bottom: 43px; }
+  .video-modal { padding: 18px; }
+  .video-modal__close { top: -38px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__video { display: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav__brand">Esencia Natural</div>
+  <a href="#booking-calendar" class="nav__cta">Agendar llamada</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__media">
+    <img
+      class="hero__poster"
+      src="assets/hero/esencia-hero-poster-10s-v2.jpg"
+      alt=""
+      aria-hidden="true"
+      loading="eager"
+      decoding="async"
+    />
+    <video
+      class="hero__video hero__video--desktop"
+      autoplay
+      muted
+      loop
+      playsinline
+      webkit-playsinline
+      preload="metadata"
+      poster="assets/hero/esencia-hero-poster-10s-v2.jpg"
+      aria-label="Esencia Natural retreat video background"
+      disablepictureinpicture
+    >
+      <source src="assets/hero/esencia-hero-desktop-10s-v2.mp4" type="video/mp4" />
+    </video>
+    <video
+      class="hero__video hero__video--mobile"
+      autoplay
+      muted
+      loop
+      playsinline
+      webkit-playsinline
+      preload="metadata"
+      poster="assets/hero/esencia-hero-poster-10s-v2.jpg"
+      aria-label="Esencia Natural retreat video background"
+      disablepictureinpicture
+    >
+      <source src="assets/hero/esencia-hero-mobile-10s-v2.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <div class="hero__label">29 septiembre — 3 octubre 2026 · Munduk, Bali · 10 cupos</div>
+    <h1 class="hero__title">
+      <span class="hero__title-line">Volver al cuerpo</span>
+      <span class="hero__title-line">Volver a la tierra</span>
+      <span class="hero__title-line">Volver a vos</span>
+    </h1>
+    <p class="hero__sub">Una semana en la selva, en grupo cerrado de 10 personas, donde la respiración deja de ser una técnica y se convierte en un camino.</p>
+    <a href="#booking-calendar" class="btn btn--light">Quiero saber más</a>
+  </div>
+</section>
+
+<!-- PROMESA -->
+<section class="section" id="promesa">
+  <div class="inner-narrow">
+    <p class="body-lg"><em style="font-family: var(--hf); font-size: 22px; font-style: italic; color: var(--accent);">Esto no es un retiro de yoga.</em> Esencia Natural es un proceso de transformación de seis días, diseñado para que tu cuerpo, tu sistema nervioso y tu forma de estar en el mundo se reorganicen.</p>
+    <p class="body-lg" style="margin-top:28px;">Trabajamos con la respiración como tecnología, con la naturaleza como contexto, con el círculo como sostén, y con la ceremonia como puerta.</p>
+    <p class="body-lg" style="margin-top:28px;"><strong>No vas a salir distinto. Vas a salir más vos.</strong></p>
+  </div>
+</section>
+
+<!-- PARA QUIEN -->
+<section class="section-alt" id="testimonios">
+  <div class="inner">
+    <span class="label">Para quién</span>
+    <div class="grid-2" style="align-items:start;">
+      <div>
+        <h2 class="heading" style="margin-bottom:40px;">Esto es para vos si:</h2>
+        <div class="for-whom-item">Estás en un punto bisagra de tu vida y necesitás un espacio para escuchar lo que viene.</div>
+        <div class="for-whom-item">Ya hiciste trabajo personal antes y querés ir más profundo.</div>
+        <div class="for-whom-item">Buscás una experiencia íntima, en grupo curado, no un evento masivo.</div>
+        <div class="for-whom-item">Confiás en la respiración como herramienta, o querés descubrirla en serio.</div>
+        <div class="for-whom-item">Estás dispuesto/a a habitar la incomodidad si aparece.</div>
+      </div>
+      <div>
+        <h2 class="heading" style="margin-bottom:40px;">Esto no es para vos si:</h2>
+        <div class="for-whom-item">Buscás unas vacaciones de yoga con check-list de actividades.</div>
+        <div class="for-whom-item">Querés un retiro masivo con 30 personas y energía de festival.</div>
+        <div class="for-whom-item">No tenés disponibilidad emocional para mirar adentro durante una semana.</div>
+        <div class="for-whom-item">Necesitás agenda libre y conexión a internet 24/7.</div>
+        <div class="for-whom-item">Esperás que alguien te dé las respuestas. Acá las encontrás vos.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILARES -->
+<section class="section">
+  <div class="inner">
+    <span class="label">Los cuatro pilares</span>
+    <div class="pilares-grid">
+      <div class="pilar">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="margin-bottom: 28px;">
+          <circle cx="32" cy="32" r="30" stroke="#2d4a3e" stroke-width="1" fill="none"/>
+          <path d="M19 34 C23 27, 27 27, 31 34" stroke="#2d4a3e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M33 34 C37 27, 41 27, 45 34" stroke="#2d4a3e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M21 39 C25 43, 29 43, 32 39" stroke="#2d4a3e" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          <path d="M32 39 C35 43, 39 43, 43 39" stroke="#2d4a3e" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          <path d="M32 21 L32 46" stroke="#2d4a3e" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+          <circle cx="32" cy="25" r="2.5" fill="#2d4a3e"/>
+        </svg>
+        <h3 class="pilar__title">Respiración</h3>
+        <p class="pilar__body">La respiración es una tecnología antigua. Bien usada, mueve emoción acumulada, reorganiza el sistema nervioso, abre acceso a estados que la mente sola no alcanza.</p>
+      </div>
+      <div class="pilar">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="margin-bottom: 28px;">
+          <circle cx="32" cy="32" r="30" stroke="#2d4a3e" stroke-width="1" fill="none"/>
+          <path d="M20 40 C24 35, 28 33, 32 34 C36 35, 40 33, 44 28" stroke="#2d4a3e" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <path d="M22 44 C28 41, 36 41, 42 44" stroke="#2d4a3e" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.75"/>
+          <path d="M32 20 C38 20, 42 24, 42 29 C42 36, 35 39, 32 44 C29 39, 22 36, 22 29 C22 24, 26 20, 32 20 Z" stroke="#2d4a3e" stroke-width="1.3" fill="none" stroke-linejoin="round"/>
+          <path d="M32 24 C34 28, 34 32, 31 36" stroke="#2d4a3e" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+        <h3 class="pilar__title">Naturaleza</h3>
+        <p class="pilar__body">Munduk es uno de los lugares con más carga energética de Bali. Selva, cascadas, vertientes, templos. No es decorado: es parte del trabajo.</p>
+      </div>
+      <div class="pilar">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="margin-bottom: 28px;">
+          <circle cx="32" cy="32" r="30" stroke="#2d4a3e" stroke-width="1" fill="none"/>
+          <circle cx="32" cy="33" r="14" stroke="#2d4a3e" stroke-width="1" fill="none"/>
+          <circle cx="32" cy="25" r="3" fill="#2d4a3e"/>
+          <circle cx="23.5" cy="31" r="3" fill="#2d4a3e"/>
+          <circle cx="40.5" cy="31" r="3" fill="#2d4a3e"/>
+          <path d="M23.5 36 C26 39, 29 40, 32 40 C35 40, 38 39, 40.5 36" stroke="#2d4a3e" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          <path d="M26 28 C27.5 26, 29.5 25, 32 25 C34.5 25, 36.5 26, 38 28" stroke="#2d4a3e" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.75"/>
+        </svg>
+        <h3 class="pilar__title">Tribu</h3>
+        <p class="pilar__body">Diez personas. Grupo cerrado durante seis días. Trabajo de confianza, mirada, sostén. La transformación pasa por adentro, pero no se hace sola.</p>
+      </div>
+      <div class="pilar">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="margin-bottom: 28px;">
+          <circle cx="32" cy="32" r="30" stroke="#2d4a3e" stroke-width="1" fill="none"/>
+          <path d="M32 18 C37 24, 39 29, 39 33 C39 38, 35.5 42, 32 44 C28.5 42, 25 38, 25 33 C25 29, 27 24, 32 18 Z" stroke="#2d4a3e" stroke-width="1.3" fill="none" stroke-linejoin="round"/>
+          <path d="M32 25 C34.5 28, 35.5 30.5, 35.5 33 C35.5 35.5, 34 37.5, 32 39 C30 37.5, 28.5 35.5, 28.5 33 C28.5 30.5, 29.5 28, 32 25 Z" stroke="#2d4a3e" stroke-width="1.1" fill="none" stroke-linejoin="round" opacity="0.8"/>
+          <path d="M23 46 L41 46" stroke="#2d4a3e" stroke-width="1.1" stroke-linecap="round"/>
+          <path d="M26 42 L32 46 L38 42" stroke="#2d4a3e" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3 class="pilar__title">Ceremonia</h3>
+        <p class="pilar__body">Tres noches frente al fuego. Una ceremonia inaugural balinesa. Un ritual de alquimia y manifestación al cierre. Marcamos el tiempo, lo que merece marca.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUE INCLUYE -->
+<section class="section-alt">
+  <div class="inner-narrow">
+    <span class="label">La experiencia</span>
+    <h2 class="heading" style="margin-bottom:64px;">Qué incluye el retiro</h2>
+    
+    <div class="exp-item"><span class="exp-num">01</span><div><h3 class="exp-title">Alojamiento en DesaEko</h3><p class="exp-text">5 noches en DesaEko, un refugio en la montaña de Munduk rodeado de selva, ríos y cascadas. Un entorno diseñado para reconectar con la naturaleza y con uno mismo.</p></div></div>
+    <div class="exp-item"><span class="exp-num">02</span><div><h3 class="exp-title">Alimentación consciente</h3><p class="exp-text">5 desayunos orgánicos en The Botanist, restaurante de granja a la mesa dentro de DesaEko. Ingredientes locales, frescos y preparados con intención.</p></div></div>
+    <div class="exp-item"><span class="exp-num">03</span><div><h3 class="exp-title">Práctica matinal</h3><p class="exp-text">Yoga, pranayama y meditación al amanecer en el Yoga Deck de DesaEko. Una práctica suave que prepara el cuerpo y la mente para el día.</p></div></div>
+    <div class="exp-item"><span class="exp-num">04</span><div><h3 class="exp-title">Sesión Respiración Esencia Natural™</h3><p class="exp-text">La experiencia central del retiro. Liberación somática a través de la respiración consciente, la naturaleza y el sonido. Música compuesta en vivo, instrumentos y campo grupal.</p></div></div>
+    <div class="exp-item"><span class="exp-num">05</span><div><h3 class="exp-title">Ceremonia de Sound Healing</h3><p class="exp-text">Una experiencia inmersiva con cuencos tibetanos, gongs y otros instrumentos sagrados. Una práctica que acompaña toda la vida.</p></div></div>
+    <div class="exp-item"><span class="exp-num">06</span><div><h3 class="exp-title">Taller Volver a la Raíz</h3><p class="exp-text">Ejercicios de confianza, honestidad y presencia en las relaciones. Trabajo grupal que profundiza la conexión con los demás y con uno mismo.</p></div></div>
+    <div class="exp-item"><span class="exp-num">07</span><div><h3 class="exp-title">Ritual de alquimia frente al fuego</h3><p class="exp-text">Intención y decreto de cambios reales. Un ritual de cierre que sella los compromisos internos y marca el inicio de una nueva etapa.</p></div></div>
+    <div class="exp-item"><span class="exp-num">08</span><div><h3 class="exp-title">Caminatas a las cascadas</h3><p class="exp-text">Paseos guiados a las cascadas de Munduk, accesibles caminando desde el alojamiento. Conexión directa con la naturaleza.</p></div></div>
+    <div class="exp-item"><span class="exp-num">09</span><div><h3 class="exp-title">Paseo en canoa y templos</h3><p class="exp-text">Recorrido en canoa por el Lago Tamblingan y visita a templos sagrados balineses. Una inmersión en la cultura y espiritualidad local.</p></div></div>
+    <div class="exp-item" style="border-bottom:none;"><span class="exp-num">10</span><div><h3 class="exp-title">Guía de viaje por Bali</h3><p class="exp-text">Guía completa con recomendaciones, mapas y contactos para explorar la isla antes o después del retiro.</p></div></div>
+    
+    <div style="margin-top:64px; padding:24px 28px; background:rgba(45,74,62,0.06); border-left:3px solid var(--accent); font-size:14px; line-height:1.8;">
+      <strong>No incluye:</strong> Vuelos internacionales, traslados al alojamiento, visa, vacunas y gastos personales fuera del programa.<br><br>
+      El retiro se confirma al completar el cupo mínimo de 6 personas. Te sugerimos reservar vuelos solo cuando el cupo esté asegurado.
+    </div>
+  </div>
+</section>
+
+<!-- EL LUGAR -->
+<section class="section">
+  <div class="inner">
+    <div class="grid-2" style="align-items:center;">
+      <div>
+        <span class="label">El lugar</span>
+        <h2 class="heading" style="margin-bottom:28px;">Munduk. El corazón de Bali.</h2>
+        <p class="body-text" style="margin-bottom:18px;">Tiendas con vista a la montaña. Comida orgánica de la huerta a la mesa. Yoga deck rodeado de selva, junto a una vertiente sagrada.</p>
+        <p class="body-text">DesaEko está en Munduk, en el norte de Bali, lejos del turismo de Ubud y Canggu. Acá no hay multitudes, no hay autos. Hay selva, agua, montaña, y silencio.</p>
+      </div>
+      <div class="place-slider" data-place-slider aria-label="Galería del lugar">
+        <img class="place-slider__slide is-active" src="assets/hotel/general/01.jpg" alt="Desa Eko rodeado de selva en Munduk" />
+        <img class="place-slider__slide" src="assets/hotel/general/03.jpg" alt="Vista del hotel entre vegetación tropical" />
+        <img class="place-slider__slide" src="assets/hotel/general/05.jpg" alt="Atmósfera general de Desa Eko en Bali" />
+        <div class="place-slider__overlay" aria-hidden="true"></div>
+        <div class="place-slider__dots" aria-hidden="true">
+          <span class="place-slider__dot is-active"></span>
+          <span class="place-slider__dot"></span>
+          <span class="place-slider__dot"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACU -->
+<section class="section-dark">
+  <div class="inner">
+    <div class="grid-2" style="align-items:center;">
+      <img src="_DSC0390.jpg" alt="Facu" style="width:100%; height:auto; display:block;" />
+      <div>
+        <span class="label label--dark">Quién facilita</span>
+        <h2 style="font-family:var(--hf); font-size:clamp(48px,5.5vw,68px); font-weight:300; line-height:0.95; margin-bottom:32px; color:#e8e0d4;">Facu</h2>
+        <p style="font-size:15px; line-height:1.85; color:rgba(232,224,212,0.58); margin-bottom:20px; text-wrap:pretty;">Llevo años trabajando con la respiración como puerta a procesos profundos. He facilitado cientos de personas en sesiones individuales, grupales y retiros internacionales.</p>
+        <p style="font-size:15px; line-height:1.85; color:rgba(232,224,212,0.58); margin-bottom:20px; text-wrap:pretty;">Mi trabajo no se sostiene en un método copiado. Se sostiene en años de práctica propia, formación rigurosa, y la convicción de que el cuerpo sabe — solo hace falta darle el espacio.</p>
+        <p style="font-size:15px; line-height:1.85; color:rgba(232,224,212,0.58); text-wrap:pretty;">Esencia Natural es la versión más curada de lo que hago: un proceso de seis días, en grupo de diez, en uno de los lugares más cargados de Bali.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVERSIÓN -->
+<section class="section" id="inversion">
+  <div class="inner">
+    <span class="label">Inversión</span>
+    <div class="investment-intro">
+      <h2 class="heading" style="margin-bottom:24px;">Elegí cómo querés habitar la experiencia.</h2>
+      <p class="body-text">Lo simplificamos a dos opciones claras. Podés venir en formato compartido con otra persona o elegir tu espacio individual para vivir el retiro con más privacidad y descanso.</p>
+      <div class="investment-intro__note">Compartida: 6 cupos · Individual: 4 cupos</div>
+    </div>
+    <div class="stay-grid">
+      <article class="stay-card">
+        <div class="stay-card__slider" data-stay-slider aria-label="Compartida">
+          <img class="stay-card__slide is-active" src="assets/hotel/shared/01.jpg" alt="Alojamiento compartido en Desa Eko" />
+          <img class="stay-card__slide" src="assets/hotel/shared/02.jpg" alt="Interior del alojamiento compartido" />
+          <img class="stay-card__slide" src="assets/hotel/shared/03.jpg" alt="Detalle del espacio compartido" />
+          <img class="stay-card__slide" src="assets/hotel/shared/04.jpg" alt="Vista exterior del alojamiento compartido" />
+          <div class="stay-card__dots" aria-hidden="true">
+            <span class="stay-card__dot is-active"></span>
+            <span class="stay-card__dot"></span>
+            <span class="stay-card__dot"></span>
+            <span class="stay-card__dot"></span>
+          </div>
+        </div>
+        <div class="stay-card__body">
+          <div class="stay-card__kicker">Opción 1</div>
+          <div class="stay-card__availability">6 cupos disponibles</div>
+          <h3 class="stay-card__title">Compartida</h3>
+          <p class="stay-card__text">La opción para quienes quieren vivir la experiencia en formato compartido. Conserva toda la belleza del lugar y abre más espacio para el encuentro, la amistad y el viaje en comunidad.</p>
+          <div class="stay-card__pricing">
+            <div class="stay-card__option">
+              <div class="stay-card__option-title">Alojamiento compartido</div>
+              <div class="stay-card__option-price">$1900 USD</div>
+              <p class="stay-card__option-copy">Por persona, compartiendo una tent estándar con otra participante del retiro.</p>
+              <a href="#booking-calendar" class="btn btn--dark stay-card__action">Reserva tu lugar</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="stay-card">
+        <div class="stay-card__slider" data-stay-slider aria-label="Individual">
+          <img class="stay-card__slide is-active" src="assets/hotel/private/01.jpg" alt="Alojamiento individual en Desa Eko" />
+          <img class="stay-card__slide" src="assets/hotel/private/02.jpg" alt="Interior del alojamiento individual" />
+          <img class="stay-card__slide" src="assets/hotel/private/03.jpg" alt="Detalle del alojamiento individual" />
+          <img class="stay-card__slide" src="assets/hotel/private/04.jpg" alt="Vista exterior del alojamiento individual" />
+          <div class="stay-card__dots" aria-hidden="true">
+            <span class="stay-card__dot is-active"></span>
+            <span class="stay-card__dot"></span>
+            <span class="stay-card__dot"></span>
+            <span class="stay-card__dot"></span>
+          </div>
+        </div>
+        <div class="stay-card__body">
+          <div class="stay-card__kicker">Opción 2</div>
+          <div class="stay-card__availability">4 cupos disponibles</div>
+          <h3 class="stay-card__title">Individual</h3>
+          <p class="stay-card__text">Para quienes quieren vivir el retiro con más privacidad, descanso y espacio personal. Una opción más contenida y tranquila, pensada para profundizar la experiencia hacia adentro.</p>
+          <div class="stay-card__pricing">
+            <div class="stay-card__option">
+              <div class="stay-card__option-title">Alojamiento individual</div>
+              <div class="stay-card__option-price">$2500 USD</div>
+              <p class="stay-card__option-copy">Para una persona, en formato individual, durante todo el retiro.</p>
+              <a href="#booking-calendar" class="btn btn--dark stay-card__action">Reserva tu lugar</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="investment-footer">
+      <p><strong>La disponibilidad es realmente limitada:</strong> solo 6 lugares para la opción compartida y 4 para la opción individual. Las plazas se asignan por orden de reserva.</p>
+    </div>
+    <div class="payment-terms">
+      <div class="payment-terms__card">
+        <h3 class="payment-terms__title">Información de pago</h3>
+        <div class="payment-terms__item">
+          <span class="payment-terms__label">Depósito inicial</span>
+          <p class="payment-terms__text">La reserva de tu lugar se confirma con un depósito inicial del 50% del valor total. El saldo restante podrá abonarse en hasta 3 pagos.</p>
+        </div>
+        <div class="payment-terms__item">
+          <span class="payment-terms__label">Pago final</span>
+          <p class="payment-terms__text">El importe total deberá estar abonado en su totalidad hasta un mes antes del inicio del retiro.</p>
+        </div>
+      </div>
+      <div class="payment-terms__card">
+        <h3 class="payment-terms__title">Política de cancelación y reembolso</h3>
+        <div class="payment-terms__item">
+          <span class="payment-terms__label">Hasta 15 semanas antes</span>
+          <p class="payment-terms__text">Las cancelaciones realizadas hasta 15 semanas antes del retiro recibirán el reembolso completo de la reserva y de todas las cuotas abonadas.</p>
+        </div>
+        <div class="payment-terms__item">
+          <span class="payment-terms__label">Con menos de 15 semanas</span>
+          <p class="payment-terms__text">Las cancelaciones realizadas con menos de 15 semanas de anticipación solo serán reembolsadas en caso de que la persona encuentre un reemplazo para su lugar.</p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:48px;">
+      <a href="#booking-calendar" class="btn btn--dark">Reserva tu lugar</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="section-alt">
+  <div class="inner">
+    <span class="label">Palabras de quienes lo vivieron</span>
+    <div class="testimonial-feature">
+      <div class="testimonial-feature__media">
+        <button
+          class="testimonial-feature__trigger"
+          type="button"
+          data-video-trigger
+          data-video-id="2teaBrXYgpk"
+          aria-label="Abrir testimonio destacado en video"
+        >
+          <img class="testimonial-feature__poster" src="https://i.ytimg.com/vi/2teaBrXYgpk/hqdefault.jpg" alt="Vista previa del testimonio destacado en video" />
+          <div class="testimonial-feature__veil" aria-hidden="true"></div>
+          <span class="testimonial-feature__play" aria-hidden="true"></span>
+          <span class="testimonial-feature__play-label">Ver testimonio</span>
+        </button>
+      </div>
+      <div class="testimonial-feature__copy">
+        <div>
+          <div class="testimonial-feature__eyebrow">Testimonio destacado</div>
+          <h3 class="testimonial-feature__title" style="margin:16px 0 22px;">Verlo. Escucharlo. Sentir si resuena con vos.</h3>
+          <p class="testimonial-feature__text">Sumé este video como una pieza central de la sección para que la experiencia no se quede solo en frases sueltas. Se puede abrir y ver directamente desde la página, sin salir del sitio.</p>
+        </div>
+        <a href="https://www.youtube.com/watch?v=2teaBrXYgpk" target="_blank" class="testimonial-feature__link">Abrir en YouTube →</a>
+      </div>
+    </div>
+    <div class="testimonial-grid">
+      
+      <!-- Testimonio 1 -->
+      <div style="background:var(--bg); padding:40px 36px; display:flex; flex-direction:column; gap:28px;">
+        <p style="font-family:var(--hf); font-size:20px; font-style:italic; line-height:1.5; color:var(--fg); text-wrap:pretty;">"Puedes conseguir estados que te liberan y te hacen sentir una paz y una calma increíbles."</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:auto;">
+          <span style="font-size:14px; font-weight:500; letter-spacing:0.08em;">Nerea</span>
+          <a href="https://www.youtube.com/watch?v=h5t6nB08zhg&t=17s" target="_blank" style="font-size:12px; letter-spacing:0.10em; text-transform:uppercase; color:var(--accent); border-bottom:1px solid var(--accent); padding-bottom:2px; transition:opacity 0.2s;">Ver video →</a>
+        </div>
+      </div>
+      
+      <!-- Testimonio 2 -->
+      <div style="background:var(--bg); padding:40px 36px; display:flex; flex-direction:column; gap:28px;">
+        <p style="font-family:var(--hf); font-size:20px; font-style:italic; line-height:1.5; color:var(--fg); text-wrap:pretty;">"A través de la naturaleza pude conectar conmigo misma; fue como abrir una puerta que estaba cerrada."</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:auto;">
+          <span style="font-size:14px; font-weight:500; letter-spacing:0.08em;">Fernanda</span>
+          <a href="https://www.youtube.com/watch?v=2i10LyhlMdM&t=1s" target="_blank" style="font-size:12px; letter-spacing:0.10em; text-transform:uppercase; color:var(--accent); border-bottom:1px solid var(--accent); padding-bottom:2px; transition:opacity 0.2s;">Ver video →</a>
+        </div>
+      </div>
+      
+      <!-- Testimonio 3 -->
+      <div style="background:var(--bg); padding:40px 36px; display:flex; flex-direction:column; gap:28px;">
+        <p style="font-family:var(--hf); font-size:20px; font-style:italic; line-height:1.5; color:var(--fg); text-wrap:pretty;">"Fue tan liberador poder dejarme atravesar por todo eso."</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:auto;">
+          <span style="font-size:14px; font-weight:500; letter-spacing:0.08em;">Florencia</span>
+          <a href="https://www.youtube.com/watch?v=4QIdepcLTUI" target="_blank" style="font-size:12px; letter-spacing:0.10em; text-transform:uppercase; color:var(--accent); border-bottom:1px solid var(--accent); padding-bottom:2px; transition:opacity 0.2s;">Ver video →</a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta" id="reserva">
+  <span class="label">29 septiembre — 3 octubre 2026</span>
+  <h2 class="cta__title">¿Sentís que esto es para vos?</h2>
+  <p class="cta__sub">Agendá una llamada de 30 minutos conmigo. Te hago tres preguntas, te respondo todas las tuyas, y juntos vemos si esto es lo que estás buscando. No vendo. Conversamos.</p>
+  <div class="booking-widget" id="booking-calendar">
+    <div class="booking-widget__intro">
+      <div class="booking-widget__eyebrow">Agenda privada · 30 min</div>
+      <h3 class="booking-widget__title">Elegí el horario que mejor te quede</h3>
+      <p class="booking-widget__text">Reservá directamente tu llamada y asegurá tu espacio para conversar con Facu sobre el retiro, la experiencia y la disponibilidad.</p>
+    </div>
+    <div class="booking-widget__frame-wrap">
+      <iframe src="https://link.facurespira.com/widget/booking/xs1HLcI1gn4PU5UpzVhF" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="lKTOF5ESXykWjKIBrnmc_1778077963517"></iframe><br><script src="https://link.facurespira.com/js/form_embed.js" type="text/javascript"></script>
+    </div>
+    <p class="booking-widget__note">Las llamadas se reservan por orden de agenda. Si un horario aparece disponible, todavía podés tomarlo.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__brand">Esencia Natural</div>
+  <div class="footer__copy">© 2026 · Munduk, Bali</div>
+</footer>
+
+<!-- FLOATING CTA -->
+<a href="#booking-calendar" class="btn btn--dark floating-cta" id="floatingCta">Hablemos</a>
+
+<div class="promo-popup" id="promoPopup" aria-hidden="true">
+  <div class="promo-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="promoPopupTitle">
+    <button type="button" class="promo-popup__close" id="promoPopupClose" aria-label="Cerrar oferta">×</button>
+    <div class="promo-popup__eyebrow">Oferta de bienvenida</div>
+    <h2 class="promo-popup__title" id="promoPopupTitle">Recibí un 10% de descuento para reservar dentro de las próximas 48 horas</h2>
+    <p class="promo-popup__text">Dejanos tu email y te enviamos el código promocional para que puedas reservar tu lugar con un beneficio especial de bienvenida.</p>
+    <div class="promo-popup__timer" aria-label="Tiempo restante de la oferta">
+      <div class="promo-popup__time-box">
+        <span class="promo-popup__time-value" id="promoDays">00</span>
+        <span class="promo-popup__time-label">Días</span>
+      </div>
+      <div class="promo-popup__time-box">
+        <span class="promo-popup__time-value" id="promoHours">00</span>
+        <span class="promo-popup__time-label">Horas</span>
+      </div>
+      <div class="promo-popup__time-box">
+        <span class="promo-popup__time-value" id="promoMinutes">00</span>
+        <span class="promo-popup__time-label">Minutos</span>
+      </div>
+    </div>
+    <form class="promo-popup__form" id="promoPopupForm" novalidate>
+      <div class="promo-popup__field">
+        <input type="email" class="promo-popup__input" id="promoPopupEmail" name="email" placeholder="Tu email" autocomplete="email" required />
+      </div>
+      <p class="promo-popup__footnote">La promoción se activa desde tu primera visita y permanece disponible durante 48 horas en este navegador.</p>
+      <div class="promo-popup__actions">
+        <button type="submit" class="btn btn--dark" id="promoPopupSubmit">Recibir código</button>
+      </div>
+      <div class="promo-popup__success" id="promoPopupSuccess">Gracias. Tu contacto quedó registrado para recibir el código promocional.</div>
+    </form>
+  </div>
+</div>
+
+<div class="video-modal" id="videoModal" aria-hidden="true">
+  <div class="video-modal__dialog">
+    <button type="button" class="video-modal__close" id="videoModalClose">Cerrar video</button>
+    <iframe
+      class="video-modal__frame"
+      id="videoModalFrame"
+      title="Video testimonial"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll', function() {
+  var nav = document.getElementById('nav');
+  var floatingCta = document.getElementById('floatingCta');
+  var bookingCalendar = document.getElementById('booking-calendar');
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+  var shouldShowFloating = window.scrollY > window.innerHeight * 0.9;
+  if (bookingCalendar) {
+    var bookingRect = bookingCalendar.getBoundingClientRect();
+    var bookingInView = bookingRect.top < window.innerHeight * 0.92 && bookingRect.bottom > 140;
+    if (bookingInView) shouldShowFloating = false;
+  }
+  floatingCta.style.display = shouldShowFloating ? 'inline-block' : 'none';
+});
+
+// Welcome promo popup
+(function() {
+  var popup = document.getElementById('promoPopup');
+  var closeButton = document.getElementById('promoPopupClose');
+  var form = document.getElementById('promoPopupForm');
+  var emailInput = document.getElementById('promoPopupEmail');
+  var submitButton = document.getElementById('promoPopupSubmit');
+  var successMessage = document.getElementById('promoPopupSuccess');
+  var dayEl = document.getElementById('promoDays');
+  var hourEl = document.getElementById('promoHours');
+  var minuteEl = document.getElementById('promoMinutes');
+  if (!popup || !closeButton || !form || !emailInput || !submitButton || !successMessage || !dayEl || !hourEl || !minuteEl) return;
+
+  var STORAGE_START = 'esenciaPromoStartAt';
+  var STORAGE_DISMISSED = 'esenciaPromoDismissed';
+  var STORAGE_LEADS = 'esenciaPromoLeads';
+  var OFFER_WINDOW_MS = 48 * 60 * 60 * 1000;
+  var startAt = Number(localStorage.getItem(STORAGE_START));
+
+  if (!startAt || Number.isNaN(startAt)) {
+    startAt = Date.now();
+    localStorage.setItem(STORAGE_START, String(startAt));
+  }
+
+  function formatUnit(value) {
+    return String(value).padStart(2, '0');
+  }
+
+  function syncTimer() {
+    var remaining = startAt + OFFER_WINDOW_MS - Date.now();
+    if (remaining <= 0) {
+      dayEl.textContent = '00';
+      hourEl.textContent = '00';
+      minuteEl.textContent = '00';
+      closePopup(true);
+      return false;
+    }
+
+    var totalMinutes = Math.floor(remaining / 60000);
+    var days = Math.floor(totalMinutes / (60 * 24));
+    var hours = Math.floor((totalMinutes % (60 * 24)) / 60);
+    var minutes = totalMinutes % 60;
+
+    dayEl.textContent = formatUnit(days);
+    hourEl.textContent = formatUnit(hours);
+    minuteEl.textContent = formatUnit(minutes);
+    return true;
+  }
+
+  function openPopup() {
+    if (localStorage.getItem(STORAGE_DISMISSED) === 'true') return;
+    if (!syncTimer()) return;
+    popup.classList.add('is-open');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePopup(expired) {
+    popup.classList.remove('is-open');
+    popup.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (!expired) {
+      localStorage.setItem(STORAGE_DISMISSED, 'true');
+    }
+  }
+
+  closeButton.addEventListener('click', function() {
+    closePopup(false);
+  });
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    if (!emailInput.checkValidity()) {
+      emailInput.reportValidity();
+      return;
+    }
+
+    var storedLeads = [];
+    try {
+      storedLeads = JSON.parse(localStorage.getItem(STORAGE_LEADS) || '[]');
+    } catch (error) {
+      storedLeads = [];
+    }
+
+    storedLeads.push({
+      email: emailInput.value.trim(),
+      capturedAt: new Date().toISOString(),
+      source: 'promo-popup'
+    });
+
+    localStorage.setItem(STORAGE_LEADS, JSON.stringify(storedLeads));
+    localStorage.setItem(STORAGE_DISMISSED, 'true');
+    successMessage.classList.add('is-visible');
+    emailInput.disabled = true;
+    submitButton.disabled = true;
+    submitButton.textContent = 'Listo';
+
+    window.setTimeout(function() {
+      closePopup(false);
+    }, 1200);
+  });
+
+  popup.addEventListener('click', function(event) {
+    if (event.target === popup) closePopup(false);
+  });
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && popup.classList.contains('is-open')) {
+      closePopup(false);
+    }
+  });
+
+  syncTimer();
+  setInterval(syncTimer, 30000);
+  window.setTimeout(openPopup, 1200);
+})();
+
+// Place slider
+function initFadeSlider(slider, slideSelector, dotSelector, intervalMs) {
+  var slides = slider.querySelectorAll(slideSelector);
+  var dots = slider.querySelectorAll(dotSelector);
+  var activeIndex = 0;
+
+  if (slides.length < 2) return;
+
+  setInterval(function() {
+    slides[activeIndex].classList.remove('is-active');
+    if (dots[activeIndex]) dots[activeIndex].classList.remove('is-active');
+
+    activeIndex = (activeIndex + 1) % slides.length;
+
+    slides[activeIndex].classList.add('is-active');
+    if (dots[activeIndex]) dots[activeIndex].classList.add('is-active');
+  }, intervalMs);
+}
+
+document.querySelectorAll('[data-place-slider]').forEach(function(slider) {
+  initFadeSlider(slider, '.place-slider__slide', '.place-slider__dot', 3800);
+});
+
+document.querySelectorAll('[data-stay-slider]').forEach(function(slider) {
+  initFadeSlider(slider, '.stay-card__slide', '.stay-card__dot', 3200);
+});
+
+// Video modal
+(function() {
+  var modal = document.getElementById('videoModal');
+  var frame = document.getElementById('videoModalFrame');
+  var closeButton = document.getElementById('videoModalClose');
+  if (!modal || !frame || !closeButton) return;
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    frame.src = '';
+  }
+
+  document.querySelectorAll('[data-video-trigger]').forEach(function(trigger) {
+    trigger.addEventListener('click', function() {
+      var videoId = trigger.getAttribute('data-video-id');
+      if (!videoId) return;
+      frame.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1';
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+    });
+  });
+
+  closeButton.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(event) {
+    if (event.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+})();
+</script>
+</body>
+</html>
