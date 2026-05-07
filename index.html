@@ -136,6 +136,8 @@ a { color: inherit; text-decoration: none; }
 .place-slider__dots { position: absolute; left: 28px; bottom: 26px; display: flex; gap: 10px; z-index: 2; }
 .place-slider__dot { width: 30px; height: 1px; background: rgba(247,244,239,0.38); transition: background 0.35s ease, transform 0.35s ease; }
 .place-slider__dot.is-active { background: rgba(247,244,239,0.95); transform: scaleX(1.15); transform-origin: left center; }
+.place-block { align-items: center; }
+.place-copy { max-width: 520px; }
 
 /* URGENCY BLOCK */
 .urgency { background: var(--accent); color: #f7f4ef; padding: 56px 60px; text-align: center; }
@@ -239,6 +241,10 @@ a { color: inherit; text-decoration: none; }
 .faq-home__answer { padding: 0 0 18px; font-size: 15px; line-height: 1.8; color: var(--muted); text-wrap: pretty; max-width: 720px; }
 .faq-home__footer { margin-top: 28px; font-size: 14px; line-height: 1.75; color: var(--muted); }
 .faq-home__footer a { color: var(--accent); border-bottom: 1px solid rgba(45,74,62,0.24); padding-bottom: 2px; }
+.facu-block { align-items: center; }
+.facu-media { width: 100%; max-width: 520px; }
+.facu-media img { width: 100%; height: auto; display: block; }
+.facu-copy { max-width: 520px; }
 .video-modal { position: fixed; inset: 0; z-index: 500; display: none; align-items: center; justify-content: center; padding: 32px; background: rgba(8, 12, 10, 0.78); backdrop-filter: blur(8px); }
 .video-modal.is-open { display: flex; }
 .video-modal__dialog { position: relative; width: min(1120px, 100%); aspect-ratio: 16 / 9; background: #000; box-shadow: 0 24px 64px rgba(0,0,0,0.28); }
@@ -313,6 +319,12 @@ a { color: inherit; text-decoration: none; }
   .booking-widget__note { font-size: 11px; line-height: 1.65; }
   .place-slider { height: 360px; }
   .place-slider__dots { left: 22px; bottom: 22px; }
+  .place-block { gap: 34px; }
+  .place-copy { max-width: 100%; }
+  .facu-block { gap: 28px; }
+  .facu-copy { order: 1; max-width: 100%; }
+  .facu-media { order: 2; max-width: 100%; }
+  .facu-media img { aspect-ratio: 4 / 5; object-fit: cover; border-radius: 20px; }
   .stay-card { border-radius: 18px; }
   .stay-grid { grid-template-columns: 1fr; gap: 22px; }
   .stay-card__slider { height: 280px; }
@@ -358,6 +370,7 @@ a { color: inherit; text-decoration: none; }
   .nav__brand { font-size: 13px; }
   .nav__cta { font-size: 9px; }
   .place-slider { height: 320px; }
+  .facu-media img { aspect-ratio: 4 / 5.3; border-radius: 18px; }
   .stay-card__slider { height: 240px; }
   .booking-widget { padding: 14px; }
   .booking-widget__frame-wrap { padding: 6px; }
@@ -572,8 +585,8 @@ a { color: inherit; text-decoration: none; }
 <!-- EL LUGAR -->
 <section class="section">
   <div class="inner">
-    <div class="grid-2" style="align-items:center;">
-      <div>
+    <div class="grid-2 place-block">
+      <div class="place-copy">
         <span class="label">El lugar</span>
         <h2 class="heading" style="margin-bottom:28px;">Munduk. El corazón de Bali.</h2>
         <p class="body-text" style="margin-bottom:18px;">Tiendas con vista a la montaña. Comida orgánica de la huerta a la mesa. Yoga deck rodeado de selva, junto a una vertiente sagrada.</p>
@@ -601,9 +614,11 @@ a { color: inherit; text-decoration: none; }
 <!-- FACU -->
 <section class="section-dark">
   <div class="inner">
-    <div class="grid-2" style="align-items:center;">
-      <img src="assets/facu/facu.jpg" alt="Facu" style="width:100%; height:auto; display:block;" />
-      <div>
+    <div class="grid-2 facu-block">
+      <div class="facu-media">
+        <img src="assets/facu/facu.jpg" alt="Facu" />
+      </div>
+      <div class="facu-copy">
         <span class="label label--dark">Quién facilita</span>
         <h2 style="font-family:var(--hf); font-size:clamp(48px,5.5vw,68px); font-weight:300; line-height:0.95; margin-bottom:32px; color:#e8e0d4;">Facu</h2>
         <p style="font-size:15px; line-height:1.85; color:rgba(232,224,212,0.58); margin-bottom:20px; text-wrap:pretty;">Llevo años trabajando con la respiración como puerta a procesos profundos. He facilitado cientos de personas en sesiones individuales, grupales y retiros internacionales.</p>
